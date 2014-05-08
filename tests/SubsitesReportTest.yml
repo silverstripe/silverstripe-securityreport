@@ -1,0 +1,63 @@
+Subsite:
+  main:
+    Title: TestMainSite
+  subsite1:
+    Title: TestSubsite1
+  subsite2:
+    Title: TestSubsite2
+
+Group:
+  admin:
+    Title: Admin
+    Code: admin
+    AccessAllSubsites: 1
+  editor:
+    Title: Editor
+    Code: editor
+    AccessAllSubsites: 1
+  subsite1group:
+    Title: subsite1_group
+    Code: subsite1_group
+    AccessAllSubsites: 0
+    Subsites: =>Subsite.subsite1
+  subsite2group:
+    Title: subsite2_group
+    Code: subsite2_group
+    AccessAllSubsites: 0
+    Subsites: =>Subsite.subsite2
+    
+Permission:
+  admin:
+    Code: ADMIN
+    GroupID: =>Group.admin
+  editor:
+    Code: SITETREE_EDIT_ALL
+    GroupID: =>Group.editor
+  subsite1editor:
+    Code: SITETREE_EDIT_ALL
+    GroupID: =>Group.subsite1group
+  subsite2editor:
+    Code: SITETREE_EDIT_ALL
+    GroupID: =>Group.subsite2group
+
+Member:
+  memberadmin:
+    FirstName: Bob
+    Surname: Admin
+    Email: bob.admin@localhost
+    Groups: =>Group.admin
+  membereditor:
+    FirstName: Sandy
+    Surname: Editor
+    Email: sandy.editor@localhost
+    Groups: =>Group.editor
+  membersubsite1:
+    FirstName: Andrew
+    Surname: OneSite
+    Email: andrew.onesite@localhost
+    Groups: =>Group.subsite1group
+  memberallsubsites:
+    FirstName: Any
+    Surname: Sites
+    Email: anysites@localhost
+    Groups: =>Group.subsite1group,=>Group.subsite2group

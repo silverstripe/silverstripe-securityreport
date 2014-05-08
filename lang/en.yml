@@ -1,0 +1,8 @@
+en:
+  UserSecurityReport:
+    REPORTTITLE: 'Users, Groups and Permissions'
+  MemberReportExtension:
+    NEVER: 'never'
+    NOGROUPS: 'Not in a Security Group'
+    UNKNOWN: 'Unknown'
+    NOPERMISSIONS: 'No Permissions'

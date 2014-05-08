@@ -1,0 +1,56 @@
+Group:
+  group-01:
+    Title: Group Test 01
+  group-02:
+    Title: Group Test 02
+  group-03:
+    Title: Group with 1 (Admin) permission
+  group-04:
+    Title: Group with 2 permissions
+    
+Permission:
+  admin:
+    Code: ADMIN
+    Group: =>Group.group-03
+  translate-all:
+    Code: TRANSLATE_ALL
+    Group: =>Group.group-04  
+
+Member:
+  member-last-visited-is-string:
+    FirstName: Joe
+    Surname: Bloggs
+    Email: joe.bloggs@localhost
+    Created: 2014-02-25 09:10:40
+    LastVisited: 2013-02-26 11:22:10
+  member-last-visited-is-empty:
+    FirstName: Ned
+    Surname: Anon
+    Email: ned.anon@localhost
+    Created: 2014-02-25 09:10:40
+    LastVisited:
+  member-has-1-groups:
+    FirstName: Sharon
+    Surname: Anon
+    Email: sharon.anon@localhost
+    Groups: =>Group.group-01        
+  member-has-0-groups:
+    FirstName: Tracey
+    Surname: Anon
+    Email: tracey.anon@localhost   
+  member-has-0-permissions:
+    FirstName: Kev
+    Surname: Anon
+    Email: kev.anon@localhost 
+    Groups: =>Group.group-02    
+  member-has-1-permissions:
+    FirstName: Barry
+    Surname: Anon
+    Email: barry.anon@localhost 
+    Groups: =>Group.group-03
+  member-has-n-permissions:
+    FirstName: Gladys
+    Surname: Anon
+    Email: gladys.anon@localhost 
+    Groups: =>Group.group-03,=>Group.group-04
+    
