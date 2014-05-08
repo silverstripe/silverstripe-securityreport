@@ -66,14 +66,8 @@ class MemberReportExtension extends DataExtension {
 		if(class_exists('Subsite')) Subsite::disable_subsite_filter(true);
 		
 		$permissionsUsr = Permission::permissions_for_member($this->owner->ID);
-		/*
-		 * Notes: 
-		 * - Permission::get_declared_permissions_list() always returns null.
-		 * - Only alternative is to do it how it's done on the Member class. 
-		 */
-		$permissionsSys = new PermissionCheckboxSetField_Readonly('', '', '', 'GroupID', $this->owner->DirectGroups());
-		$permissionsSrc = $permissionsSys->source;
-		
+		$permissionsSrc = Permission::get_codes(true);
+
 		$permissionNames = array();
 		foreach ($permissionsUsr as $code) {
 			$code = strtoupper($code);
@@ -92,7 +86,7 @@ class MemberReportExtension extends DataExtension {
 		}
 		
 		if(class_exists('Subsite')) Subsite::disable_subsite_filter(false);
-		
+
 		return implode(', ', $permissionNames);
 	}
 }

@@ -28,7 +28,6 @@ class GridFieldExportReportButton extends GridFieldExportButton {
 			: singleton($gridField->getModelClass())->summaryFields();
 		$fileData = '';
 		$columnData = array();
-		$fieldItems = new ArrayList();
 
 		if($this->csvHasHeader) {
 			$headers = array();
