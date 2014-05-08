@@ -1,10 +1,11 @@
 <?php
 
 /**
- * Extends the {@see Member} class with additional descriptions for elements.
- * See {@see UserSecurityReport} for usage.
- * 
+ * Adds 'SubsiteDescription' for to show which subsites this Member has edit access to
+ *
+ * @author Damian Mooyman <damian@silverstripe.com>
  * @package securityreport
+ * @subpackage subsites
  */
 class SubsiteMemberReportExtension extends DataExtension {
 	
@@ -19,13 +20,25 @@ class SubsiteMemberReportExtension extends DataExtension {
 	);
 	
 	/**
-	 * Describes the subsites this user has any access to
+	 * Default permission to filter for
+	 * 
+	 * @var string
+	 * @config
+	 */
+	private static $subsite_description_permission = 'SITETREE_EDIT_ALL';
+	
+	/**
+	 * Describes the subsites this user has SITETREE_EDIT_ALL access to
 	 * 
 	 * @return string
 	 */
 	public function getSubsiteDescription() {
-		$subsites = Subsite::accessible_sites('SITETREE_EDIT_ALL', true, "Main site", $this->owner)
-			->column('Title');
-		return implode(', ', $subsites);
+		$subsites = Subsite::accessible_sites(
+			$this->owner->config()->subsite_description_permission,
+			true,
+			"Main site",
+			$this->owner
+		);
+		return implode(', ', $subsites->column('Title'));
 	}
 }

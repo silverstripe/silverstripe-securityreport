@@ -16,7 +16,7 @@ class MemberReportExtension extends DataExtension {
 	 */
 	private static $casting = array(
 		'LastVisitedDescription' => 'Text',
-		'GroupsDescription' => 'HTMLText',
+		'GroupsDescription' => 'Text',
 		'PermissionsDescription' => 'Text'
 	);
 	
@@ -35,6 +35,8 @@ class MemberReportExtension extends DataExtension {
 	 * @return string
 	 */
 	public function getGroupsDescription() {
+		if(class_exists('Subsite')) Subsite::disable_subsite_filter(true);
+		
 		// Get the member's groups, if any
 		$groups = $this->owner->Groups();
 
@@ -46,8 +48,10 @@ class MemberReportExtension extends DataExtension {
 		// Collect the group names
 		$groupNames = array();
 		foreach ($groups as $group) {
-			$groupNames[] = $group->getTreeTitle();
+			$groupNames[] = html_entity_decode($group->getTreeTitle());
 		}
+		
+		if(class_exists('Subsite')) Subsite::disable_subsite_filter(false);
 		
 		// return a csv string of the group names, sans-markup
 		return preg_replace("#</?[^>]>#", '', implode(', ', $groupNames));
@@ -59,6 +63,8 @@ class MemberReportExtension extends DataExtension {
 	 * @return string
 	 */
 	public function getPermissionsDescription() {
+		if(class_exists('Subsite')) Subsite::disable_subsite_filter(true);
+		
 		$permissionsUsr = Permission::permissions_for_member($this->owner->ID);
 		/*
 		 * Notes: 
@@ -84,6 +90,9 @@ class MemberReportExtension extends DataExtension {
 		if(!count($permissionNames)) {
 			return _t('MemberReportExtension.NOPERMISSIONS', 'No Permissions');
 		}
+		
+		if(class_exists('Subsite')) Subsite::disable_subsite_filter(false);
+		
 		return implode(', ', $permissionNames);
 	}
 }
