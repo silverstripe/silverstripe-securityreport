@@ -39,22 +39,21 @@ class MemberReportExtension extends DataExtension {
 		
 		// Get the member's groups, if any
 		$groups = $this->owner->Groups();
-
-		// If no groups then return a status label
-		if ($groups->Count() == 0) {
-			return _t('MemberReportExtension.NOGROUPS', 'Not in a Security Group');
-		}
-		
-		// Collect the group names
-		$groupNames = array();
-		foreach ($groups as $group) {
-			$groupNames[] = html_entity_decode($group->getTreeTitle());
+		if($groups->Count()) {
+			// Collect the group names
+			$groupNames = array();
+			foreach ($groups as $group) {
+				$groupNames[] = html_entity_decode($group->getTreeTitle());
+			}
+			// return a csv string of the group names, sans-markup
+			$result = preg_replace("#</?[^>]>#", '', implode(', ', $groupNames));
+		} else {
+			// If no groups then return a status label
+			$result = _t('MemberReportExtension.NOGROUPS', 'Not in a Security Group');
 		}
 		
 		if(class_exists('Subsite')) Subsite::disable_subsite_filter(false);
-		
-		// return a csv string of the group names, sans-markup
-		return preg_replace("#</?[^>]>#", '', implode(', ', $groupNames));
+		return $result;
 	}
 	
 	/**
@@ -81,12 +80,11 @@ class MemberReportExtension extends DataExtension {
 			}
 		}
 
-		if(!count($permissionNames)) {
-			return _t('MemberReportExtension.NOPERMISSIONS', 'No Permissions');
-		}
+		$result = $permissionNames
+			? implode(', ', $permissionNames)
+			: _t('MemberReportExtension.NOPERMISSIONS', 'No Permissions');
 		
 		if(class_exists('Subsite')) Subsite::disable_subsite_filter(false);
-
-		return implode(', ', $permissionNames);
+		return $result;
 	}
 }
