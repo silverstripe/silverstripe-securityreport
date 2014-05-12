@@ -12,8 +12,8 @@ Permission:
   admin:
     Code: ADMIN
     Group: =>Group.group-03
-  translate-all:
-    Code: TRANSLATE_ALL
+  edit-all:
+    Code: SITETREE_EDIT_ALL
     Group: =>Group.group-04  
 
 Member:

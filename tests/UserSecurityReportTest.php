@@ -69,6 +69,6 @@ class UserSecurityReportTest extends SapphireTest {
 		
 		$member = $this->objFromFixture('Member', 'member-has-n-permissions');
 		$perms = $member->PermissionsDescription;
-		$this->assertEquals('Full administrative rights, Translate into all available languages', $perms);		
+		$this->assertEquals('Full administrative rights, Edit any page', $perms);		
 	}
 }
