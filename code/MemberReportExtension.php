@@ -66,7 +66,8 @@ class MemberReportExtension extends DataExtension {
 		
 		$permissionsUsr = Permission::permissions_for_member($this->owner->ID);
 		$permissionsSrc = Permission::get_codes(true);
-
+		sort($permissionsUsr);
+		
 		$permissionNames = array();
 		foreach ($permissionsUsr as $code) {
 			$code = strtoupper($code);
