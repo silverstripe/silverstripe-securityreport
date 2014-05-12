@@ -14,4 +14,4 @@ before_script:
  - cd ~/builds/ss
 
 script: 
- - var/bin/phpunit securityreport/tests/
+ - vendor/bin/phpunit securityreport/tests/
