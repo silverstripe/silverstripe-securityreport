@@ -1,5 +1,7 @@
 # Security Report
 
+[![Build Status](https://travis-ci.org/silverstripe-labs/silverstripe-securityreport.svg)](https://travis-ci.org/silverstripe-labs/silverstripe-securityreport)
+
 This module adds a "Users, Groups and Permissions" report in the CMS, so that
 an administrator can get a quick overview of who has access to the CMS.
 
