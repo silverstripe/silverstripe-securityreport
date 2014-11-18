@@ -1,0 +1,8 @@
+fi:
+  MemberReportExtension:
+    NEVER: ei koskaan
+    NOGROUPS: 'Ei tietoturvaryhmässä'
+    NOPERMISSIONS: 'Ei oikeuksia'
+    UNKNOWN: Tuntematon
+  UserSecurityReport:
+    REPORTTITLE: 'Käyttäjät, ryhmät ja oikeudet'

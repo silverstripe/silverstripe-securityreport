@@ -1,0 +1,8 @@
+eo:
+  MemberReportExtension:
+    NEVER: neniam
+    NOGROUPS: 'Ne en sekureca grupo'
+    NOPERMISSIONS: 'Mankas permesoj'
+    UNKNOWN: Nekonata
+  UserSecurityReport:
+    REPORTTITLE: 'Uzuloj, grupoj kaj permesoj'
