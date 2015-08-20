@@ -1,0 +1,8 @@
+de:
+  MemberReportExtension:
+    NEVER: nie
+    NOGROUPS: 'Nicht in einer Sicherheitsgruppe'
+    NOPERMISSIONS: 'Keine Berechtigungen'
+    UNKNOWN: Unbekannt
+  UserSecurityReport:
+    REPORTTITLE: 'Benutzer, Gruppen und Berechtigungen'
