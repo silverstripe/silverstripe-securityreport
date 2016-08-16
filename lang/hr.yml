@@ -1,0 +1,8 @@
+hr:
+  MemberReportExtension:
+    NEVER: nikada
+    NOGROUPS: 'Nije u Security grupi'
+    NOPERMISSIONS: 'Nema prava'
+    UNKNOWN: Nepoznato
+  UserSecurityReport:
+    REPORTTITLE: 'Korisnici, grupe i prava'
