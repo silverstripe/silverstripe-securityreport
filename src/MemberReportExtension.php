@@ -1,4 +1,8 @@
 <?php
+namespace SilverStripe\SecurityReport;
+
+use SilverStripe\ORM\DataExtension;
+use SilverStripe\Security\Permission;
 
 /**
  * Extends the {@see Member} class with additional descriptions for elements.
@@ -15,20 +19,10 @@ class MemberReportExtension extends DataExtension {
 	 * @config
 	 */
 	private static $casting = array(
-		'LastVisitedDescription' => 'Text',
 		'GroupsDescription' => 'Text',
 		'PermissionsDescription' => 'Text'
 	);
-	
-	/**
-	 * Returns a status message for a last visited date
-	 * 
-	 * @return string
-	 */
-	public function getLastVisitedDescription() {
-		return $this->owner->LastVisited ?: _t('MemberReportExtension.NEVER', 'never');
-	}
-	
+
 	/**
 	 * Builds a comma separated list of member group names for a given Member.
 	 *

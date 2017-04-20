@@ -1,7 +1,14 @@
 <?php
 
+namespace SilverStripe\SecurityReport;
+
+use SilverStripe\ORM\DataExtension;
+
+return;
 /**
  * Adds 'SubsiteDescription' for to show which subsites this Member has edit access to
+ *
+ * This part is broken, as SubSites is not working on SS4 yet
  *
  * @author Damian Mooyman <damian@silverstripe.com>
  * @package securityreport

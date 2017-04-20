@@ -1,4 +1,9 @@
 <?php
+namespace SilverStripe\SecurityReport;
+
+use SilverStripe\Forms\GridField\GridField;
+use SilverStripe\Forms\GridField\GridFieldExportButton;
+use SilverStripe\Forms\GridField\GridFieldFilterHeader;
 
 /**
  * An extension to GridFieldExportButton to support downloading a custom Report as a CSV file

@@ -6,7 +6,7 @@ Subsite:
   subsite2:
     Title: TestSubsite2
 
-Group:
+SilverStripe\Security\Group:
   admin:
     Title: Admin
     Code: admin
@@ -26,38 +26,38 @@ Group:
     AccessAllSubsites: 0
     Subsites: =>Subsite.subsite2
     
-Permission:
+SilverStripe\Security\Permission:
   admin:
     Code: ADMIN
-    GroupID: =>Group.admin
+    GroupID: =>SilverStripe\Security\Group.admin
   editor:
     Code: SITETREE_EDIT_ALL
-    GroupID: =>Group.editor
+    GroupID: =>SilverStripe\Security\Group.editor
   subsite1editor:
     Code: SITETREE_EDIT_ALL
-    GroupID: =>Group.subsite1group
+    GroupID: =>SilverStripe\Security\Group.subsite1group
   subsite2editor:
     Code: SITETREE_EDIT_ALL
-    GroupID: =>Group.subsite2group
+    GroupID: =>SilverStripe\Security\Group.subsite2group
 
-Member:
+SilverStripe\Security\Member:
   memberadmin:
     FirstName: Bob
     Surname: Admin
     Email: bob.admin@localhost
-    Groups: =>Group.admin
+    Groups: =>SilverStripe\Security\Group.admin
   membereditor:
     FirstName: Sandy
     Surname: Editor
     Email: sandy.editor@localhost
-    Groups: =>Group.editor
+    Groups: =>SilverStripe\Security\Group.editor
   membersubsite1:
     FirstName: Andrew
     Surname: OneSite
     Email: andrew.onesite@localhost
-    Groups: =>Group.subsite1group
+    Groups: =>SilverStripe\Security\Group.subsite1group
   memberallsubsites:
     FirstName: Any
     Surname: Sites
     Email: anysites@localhost
-    Groups: =>Group.subsite1group,=>Group.subsite2group
+    Groups: =>SilverStripe\Security\Group.subsite1group,=>SilverStripe\Security\Group.subsite2group
