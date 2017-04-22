@@ -3,9 +3,9 @@ Name: subsitesecurityreportconfig
 Only:
   moduleexists: 'subsites'
 ---
-UserSecurityReport:
-  extensions:
-    - SubsiteSecurityReport
-Member:
-  extensions:
-    - SubsiteMemberReportExtension
+#UserSecurityReport:
+#  extensions:
+#    - SubsiteSecurityReport
+#SilverStripe\Security\Member:
+#  extensions:
+#    - SilverStripe\SecurityReport\SubsiteMemberReportExtension

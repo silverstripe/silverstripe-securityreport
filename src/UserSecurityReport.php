@@ -1,12 +1,21 @@
 <?php
+namespace SilverStripe\SecurityReport;
 
+use SilverStripe\Control\Director;
+use SilverStripe\Forms\FormField;
+use SilverStripe\Forms\GridField\GridFieldExportButton;
+use SilverStripe\Forms\GridField\GridFieldPrintButton;
+use SilverStripe\ORM\ArrayList;
+use SilverStripe\Security\Member;
+use SilverStripe\Security\Permission;
+use SilverStripe\Reports\Report;
 /**
  * User Security Report
  *
  * @author Michael Parkhill <mike@silverstripe.com>
  * @package securityreport
  */
-class UserSecurityReport extends SS_Report {
+class UserSecurityReport extends Report {
 
 	/**
 	 * Columns in the report
@@ -20,7 +29,6 @@ class UserSecurityReport extends SS_Report {
 		'Surname' => 'Surname',
 		'Email' => 'Email',
 		'Created' => 'Date Created',
-		'LastVisitedDescription' => 'Last Visit',
 		'GroupsDescription' => 'Groups',
 		'PermissionsDescription' => 'Permissions'
 	);
@@ -86,7 +94,7 @@ class UserSecurityReport extends SS_Report {
 	/**
 	 * Get the source records for the report gridfield
 	 * 
-	 * @return ArrayList
+	 * @return DataList
 	 */
 	public function sourceRecords() {
 		// Get members sorted by ID
@@ -111,13 +119,12 @@ class UserSecurityReport extends SS_Report {
 	 */
 	public function getReportField() {
 		$gridField = parent::getReportField();
-		$gridField->setModelClass('UserSecurityReport');
+		$gridField->setModelClass(self::class);
 		$gridConfig = $gridField->getConfig();
-		$gridConfig->removeComponentsByType('GridFieldPrintButton');
-		$gridConfig->removeComponentsByType('GridFieldExportButton');
+		$gridConfig->removeComponentsByType([GridFieldPrintButton::class, GridFieldExportButton::class]);
 		$gridConfig->addComponents(
-			new GridFieldPrintReportButton('buttons-after-left'),
-			new GridFieldExportReportButton('buttons-after-left')
+			new GridFieldPrintReportButton('buttons-before-left'),
+			new GridFieldExportReportButton('buttons-before-left')
 		);
 		return $gridField;
 	}

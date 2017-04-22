@@ -1,5 +1,9 @@
 <?php
+namespace SilverStripe\SecurityReport;
 
+use SilverStripe\Core\Extension;
+
+return;
 /**
  * User Security Report extension for Subsites
  *

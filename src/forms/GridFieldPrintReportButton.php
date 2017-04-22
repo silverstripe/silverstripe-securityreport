@@ -1,4 +1,12 @@
 <?php
+namespace SilverStripe\SecurityReport;
+
+use SilverStripe\Forms\GridField\GridField;
+use SilverStripe\ORM\ArrayList;
+use SilverStripe\ORM\FieldType\DBDatetime;
+use SilverStripe\Security\Member;
+use SilverStripe\View\ArrayData;
+use SilverStripe\Forms\GridField\GridFieldPrintButton;
 
 /**
  * An extension to GridFieldPrintButton to support printing custom Reports
@@ -12,14 +20,15 @@
  */
 class GridFieldPrintReportButton extends GridFieldPrintButton {
 
-	/**
-	 * Export core
-	 *
-	 * Replaces definition in GridFieldPrintButton
-	 * same as original except sources data from $gridField->getList() instead of $gridField->getManipulatedList()
-	 *
-	 * @param GridField
-	 */
+    /**
+     * Export core
+     *
+     * Replaces definition in GridFieldPrintButton
+     * same as original except sources data from $gridField->getList() instead of $gridField->getManipulatedList()
+     *
+     * @param GridField
+     * @return ArrayData
+     */
 	public function generatePrintData(GridField $gridField) {
 		$printColumns = $this->getPrintColumnsForGridField($gridField);
 		$header = null;
@@ -59,7 +68,7 @@ class GridFieldPrintReportButton extends GridFieldPrintButton {
 			"Title" => $this->getTitle($gridField),
 			"Header" => $header,
 			"ItemRows" => $itemRows,
-			"Datetime" => SS_Datetime::now(),
+			"Datetime" => DBDatetime::now(),
 			"Member" => Member::currentUser(),
 		));
 
