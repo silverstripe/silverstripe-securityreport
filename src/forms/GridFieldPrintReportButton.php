@@ -18,7 +18,8 @@ use SilverStripe\Forms\GridField\GridFieldPrintButton;
  * @author Michael Armstrong <http://www.silverstripe.org/ForumMemberProfile/show/30887>
  * @author Michael Parkhill <mike@silverstripe.com>
  */
-class GridFieldPrintReportButton extends GridFieldPrintButton {
+class GridFieldPrintReportButton extends GridFieldPrintButton
+{
 
     /**
      * Export core
@@ -29,49 +30,50 @@ class GridFieldPrintReportButton extends GridFieldPrintButton {
      * @param GridField
      * @return ArrayData
      */
-	public function generatePrintData(GridField $gridField) {
-		$printColumns = $this->getPrintColumnsForGridField($gridField);
-		$header = null;
+    public function generatePrintData(GridField $gridField)
+    {
+        $printColumns = $this->getPrintColumnsForGridField($gridField);
+        $header = null;
 
-		if($this->printHasHeader) {
-			$header = new ArrayList();
-			foreach($printColumns as $field => $label){
-				$header->push(new ArrayData(array(
-					"CellString" => $label,
-				)));
-			}
-		}
+        if ($this->printHasHeader) {
+            $header = new ArrayList();
+            foreach ($printColumns as $field => $label) {
+                $header->push(new ArrayData(array(
+                    "CellString" => $label,
+                )));
+            }
+        }
 
-		// The is the only variation from the parent class, using getList() instead of getManipulatedList()
-		$items = $gridField->getList();
+        // The is the only variation from the parent class, using getList() instead of getManipulatedList()
+        $items = $gridField->getList();
 
-		$itemRows = new ArrayList();
+        $itemRows = new ArrayList();
 
-		foreach($items as $item) {
-			$itemRow = new ArrayList();
+        foreach ($items as $item) {
+            $itemRow = new ArrayList();
 
-			foreach($printColumns as $field => $label) {
-				$value = $gridField->getDataFieldValue($item, $field);
-				$itemRow->push(new ArrayData(array(
-					"CellString" => $value,
-				)));
-			}
+            foreach ($printColumns as $field => $label) {
+                $value = $gridField->getDataFieldValue($item, $field);
+                $itemRow->push(new ArrayData(array(
+                    "CellString" => $value,
+                )));
+            }
 
-			$itemRows->push(new ArrayData(array(
-				"ItemRow" => $itemRow
-			)));
+            $itemRows->push(new ArrayData(array(
+                "ItemRow" => $itemRow
+            )));
 
-			$item->destroy();
-		}
+            $item->destroy();
+        }
 
-		$ret = new ArrayData(array(
-			"Title" => $this->getTitle($gridField),
-			"Header" => $header,
-			"ItemRows" => $itemRows,
-			"Datetime" => DBDatetime::now(),
-			"Member" => Member::currentUser(),
-		));
+        $ret = new ArrayData(array(
+            "Title" => $this->getTitle($gridField),
+            "Header" => $header,
+            "ItemRows" => $itemRows,
+            "Datetime" => DBDatetime::now(),
+            "Member" => Member::currentUser(),
+        ));
 
-		return $ret;
-	}
+        return $ret;
+    }
 }
