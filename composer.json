@@ -1,25 +1,29 @@
 {
-	"name": "silverstripe/securityreport",
-	"description": "Generates a security and access report for CMS users",
-	"keywords": ["silverstripe", "security", "report"],
-	"type": "silverstripe-module",
-	"license": "BSD-3-Clause",
-	"authors": [
-		{
-			"name": "Damian Mooyman",
-			"email": "damian@silverstripe.com"
-		}
-	],
-	"require": {
-		"silverstripe/framework": ">=4.0",
-		"silverstripe/cms": ">=4.0",
-		"silverstripe/reports": "4.0.x-dev"
-	},
-	"extra": 
-	{
-		"branch-alias": 
-		{
-			"dev-master": "2.0.x-dev"
-		}
-	}
+    "name": "silverstripe/securityreport",
+    "description": "Generates a security and access report for CMS users",
+    "keywords": ["silverstripe", "security", "report"],
+    "type": "silverstripe-module",
+    "license": "BSD-3-Clause",
+    "authors": [
+        {
+            "name": "Damian Mooyman",
+            "email": "damian@silverstripe.com"
+        }
+    ],
+    "require": {
+        "silverstripe/framework": "^4@dev",
+        "silverstripe/cms": "^4@dev",
+        "silverstripe/reports": "4.0.x-dev"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^5.7",
+        "squizlabs/php_codesniffer": "*"
+    },
+    "extra":  {
+        "branch-alias": {
+            "dev-master": "2.0.x-dev"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }

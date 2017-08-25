@@ -1,22 +1,30 @@
-# See https://github.com/silverstripe-labs/silverstripe-travis-support for setup details
-
-language: php 
-
-sudo: false
-
-php:
-  - 5.6
-  - 7.0
-  - 7.1
+language: php
 
 env:
   global:
-    - DB=MYSQL CORE_RELEASE=4
+    - COMPOSER_ROOT_VERSION="4.0.x-dev"
+
+matrix:
+  include:
+    - php: 5.6
+      env: DB=MYSQL PHPCS_TEST=1 PHPUNIT_TEST=1
+    - php: 7.0
+      env: DB=MYSQL PHPUNIT_TEST=1
+    - php: 7.1
+      env: DB=MYSQL PHPUNIT_COVERAGE_TEST=1
 
 before_script:
-  - git clone git://github.com/silverstripe/silverstripe-travis-support.git ~/travis-support
-  - php ~/travis-support/travis_setup.php --source `pwd` --target ~/builds/ss
-  - cd ~/builds/ss
+  - phpenv rehash
+  - phpenv config-rm xdebug.ini
 
-script: 
- - vendor/bin/phpunit securityreport/tests/
+  - composer install --prefer-dist
+  - composer require --prefer-dist --no-update silverstripe/framework:4.0.x-dev
+  - composer update
+
+script:
+  - if [[ $PHPUNIT_TEST ]]; then vendor/bin/phpunit tests/; fi
+  - if [[ $PHPUNIT_COVERAGE_TEST ]]; then phpdbg -qrr vendor/bin/phpunit --coverage-clover=coverage.xml; fi
+  - if [[ $PHPCS_TEST ]]; then vendor/bin/phpcs --standard=framework/phpcs.xml.dist src/ tests/ ; fi
+
+after_success:
+  - if [[ $PHPUNIT_COVERAGE_TEST ]]; then bash <(curl -s https://codecov.io/bash) -f coverage.xml; fi
