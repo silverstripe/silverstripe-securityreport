@@ -1,4 +1,7 @@
 <?php
+
+namespace SilverStripe\SecurityReport\Tests;
+
 use SilverStripe\Dev\Debug;
 use SilverStripe\Dev\SapphireTest;
 use SilverStripe\Reports\Report;
@@ -17,14 +20,14 @@ class UserSecurityReportTest extends SapphireTest
 {
 
     protected static $fixture_file = 'UserSecurityReportTest.yml';
-    
+
     protected $records;
     protected $report;
-    
-    protected $requiredExtensions = array(
+
+    protected static $required_extensions = [
         Member::class => [MemberReportExtension::class]
-    );
-    
+    ];
+
     /**
      * Utility method for all tests to use.
      *
@@ -51,7 +54,7 @@ class UserSecurityReportTest extends SapphireTest
         $member = $this->objFromFixture(Member::class, 'member-has-0-groups');
         $groups = $member->GroupsDescription;
         $this->assertEquals('Not in a Security Group', $groups);
-        
+
         $member = $this->objFromFixture(Member::class, 'member-has-1-groups');
         $groups = $member->GroupsDescription;
         $this->assertEquals('Group Test 01', $groups);
@@ -62,11 +65,11 @@ class UserSecurityReportTest extends SapphireTest
         $member = $this->objFromFixture(Member::class, 'member-has-0-permissions');
         $perms = $member->PermissionsDescription;
         $this->assertEquals('No Permissions', $perms);
-        
+
         $member = $this->objFromFixture(Member::class, 'member-has-1-permissions');
         $perms = $member->PermissionsDescription;
         $this->assertEquals('Full administrative rights', $perms);
-        
+
         $member = $this->objFromFixture(Member::class, 'member-has-n-permissions');
         $perms = $member->PermissionsDescription;
         $this->assertEquals('Full administrative rights, Edit any page', $perms);
