@@ -1,18 +1,14 @@
 <?php
 
-namespace SilverStripe\SecurityReport;
+namespace SilverStripe\SecurityReport\Subsites;
 
 use SilverStripe\ORM\DataExtension;
+use SilverStripe\Subsites\Model\Subsite;
 
-return;
 /**
  * Adds 'SubsiteDescription' for to show which subsites this Member has edit access to
  *
- * This part is broken, as SubSites is not working on SS4 yet
- *
  * @author Damian Mooyman <damian@silverstripe.com>
- * @package securityreport
- * @subpackage subsites
  */
 class SubsiteMemberReportExtension extends DataExtension
 {
@@ -43,7 +39,7 @@ class SubsiteMemberReportExtension extends DataExtension
     public function getSubsiteDescription()
     {
         $subsites = Subsite::accessible_sites(
-            $this->owner->config()->subsite_description_permission,
+            $this->owner->config()->get('subsite_description_permission'),
             true,
             "Main site",
             $this->owner

@@ -3,12 +3,11 @@ namespace SilverStripe\SecurityReport;
 
 use SilverStripe\ORM\DataExtension;
 use SilverStripe\Security\Permission;
+use SilverStripe\Subsites\Model\Subsite;
 
 /**
  * Extends the {@see Member} class with additional descriptions for elements.
  * See {@see UserSecurityReport} for usage.
- *
- * @package securityreport
  */
 class MemberReportExtension extends DataExtension
 {
@@ -31,7 +30,7 @@ class MemberReportExtension extends DataExtension
      */
     public function getGroupsDescription()
     {
-        if (class_exists('Subsite')) {
+        if (class_exists(Subsite::class)) {
             Subsite::disable_subsite_filter(true);
         }
         
@@ -47,10 +46,10 @@ class MemberReportExtension extends DataExtension
             $result = preg_replace("#</?[^>]>#", '', implode(', ', $groupNames));
         } else {
             // If no groups then return a status label
-            $result = _t('MemberReportExtension.NOGROUPS', 'Not in a Security Group');
+            $result = _t(__CLASS__ . '.NOGROUPS', 'Not in a Security Group');
         }
         
-        if (class_exists('Subsite')) {
+        if (class_exists(Subsite::class)) {
             Subsite::disable_subsite_filter(false);
         }
         return $result;
@@ -63,7 +62,7 @@ class MemberReportExtension extends DataExtension
      */
     public function getPermissionsDescription()
     {
-        if (class_exists('Subsite')) {
+        if (class_exists(Subsite::class)) {
             Subsite::disable_subsite_filter(true);
         }
         
@@ -77,7 +76,7 @@ class MemberReportExtension extends DataExtension
             foreach ($permissionsSrc as $k => $v) {
                 if (isset($v[$code])) {
                     $name = empty($v[$code]['name'])
-                        ? _t('MemberReportExtension.UNKNOWN', 'Unknown')
+                        ? _t(__CLASS__ . '.UNKNOWN', 'Unknown')
                         : $v[$code]['name'];
                     $permissionNames[] = $name;
                 }
@@ -86,9 +85,9 @@ class MemberReportExtension extends DataExtension
 
         $result = $permissionNames
             ? implode(', ', $permissionNames)
-            : _t('MemberReportExtension.NOPERMISSIONS', 'No Permissions');
+            : _t(__CLASS__ . '.NOPERMISSIONS', 'No Permissions');
         
-        if (class_exists('Subsite')) {
+        if (class_exists(Subsite::class)) {
             Subsite::disable_subsite_filter(false);
         }
         return $result;

@@ -2,18 +2,17 @@
 
 namespace SilverStripe\SecurityReport\Tests;
 
-use SilverStripe\Dev\Debug;
-use SilverStripe\Dev\SapphireTest;
-use SilverStripe\Reports\Report;
+use SilverStripe\Security\Group;
 use SilverStripe\Security\Member;
 use SilverStripe\SecurityReport\MemberReportExtension;
+use SilverStripe\Reports\Report;
+use SilverStripe\Dev\SapphireTest;
 use SilverStripe\SecurityReport\UserSecurityReport;
+use SilverStripe\Subsites\Extensions\GroupSubsites;
 
 /**
  * User Security Report Tests.
  *
- * @package securityreport
- * @subpackage tests
  * @author Michael Parkhill <mike@silverstripe.com>
  */
 class UserSecurityReportTest extends SapphireTest
@@ -25,7 +24,15 @@ class UserSecurityReportTest extends SapphireTest
     protected $report;
 
     protected static $required_extensions = [
-        Member::class => [MemberReportExtension::class]
+        Member::class => [
+            MemberReportExtension::class,
+        ],
+    ];
+
+    protected static $illegal_extensions = [
+        Group::class => [
+            GroupSubsites::class,
+        ],
     ];
 
     /**
@@ -34,7 +41,7 @@ class UserSecurityReportTest extends SapphireTest
      * @return \ArrayList
      * @todo pre-fill the report with fixture-defined users
      */
-    public function setUp()
+    protected function setUp()
     {
         parent::setUp();
         $reports = Report::get_reports();

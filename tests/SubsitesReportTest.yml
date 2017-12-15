@@ -1,4 +1,4 @@
-Subsite:
+SilverStripe\Subsites\Model\Subsite:
   main:
     Title: TestMainSite
   subsite1:
@@ -19,12 +19,12 @@ SilverStripe\Security\Group:
     Title: subsite1_group
     Code: subsite1_group
     AccessAllSubsites: 0
-    Subsites: =>Subsite.subsite1
+    Subsites: =>SilverStripe\Subsites\Model\Subsite.subsite1
   subsite2group:
     Title: subsite2_group
     Code: subsite2_group
     AccessAllSubsites: 0
-    Subsites: =>Subsite.subsite2
+    Subsites: =>SilverStripe\Subsites\Model\Subsite.subsite2
     
 SilverStripe\Security\Permission:
   admin:

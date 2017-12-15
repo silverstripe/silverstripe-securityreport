@@ -1,10 +1,11 @@
 <?php
-namespace SilverStripe\SecurityReport;
+
+namespace SilverStripe\SecurityReport\Forms;
 
 use SilverStripe\Forms\GridField\GridField;
 use SilverStripe\ORM\ArrayList;
 use SilverStripe\ORM\FieldType\DBDatetime;
-use SilverStripe\Security\Member;
+use SilverStripe\Security\Security;
 use SilverStripe\View\ArrayData;
 use SilverStripe\Forms\GridField\GridFieldPrintButton;
 
@@ -71,7 +72,7 @@ class GridFieldPrintReportButton extends GridFieldPrintButton
             "Header" => $header,
             "ItemRows" => $itemRows,
             "Datetime" => DBDatetime::now(),
-            "Member" => Member::currentUser(),
+            "Member" => Security::getCurrentUser(),
         ));
 
         return $ret;

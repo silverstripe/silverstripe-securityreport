@@ -1,15 +1,13 @@
 <?php
-namespace SilverStripe\SecurityReport;
+
+namespace SilverStripe\SecurityReport\Subsites;
 
 use SilverStripe\Core\Extension;
 
-return;
 /**
  * User Security Report extension for Subsites
  *
  * @author Damian Mooyman <damian@silverstripe.com>
- * @package securityreport
- * @subpackage subsites
  */
 class SubsiteSecurityReport extends Extension
 {
@@ -21,6 +19,6 @@ class SubsiteSecurityReport extends Extension
      * @config
      */
     private static $columns = array(
-        'SubsiteDescription' => 'Subsites (edit permissions)'
+        'SubsiteDescription' => 'Subsites (edit permissions)',
     );
 }
