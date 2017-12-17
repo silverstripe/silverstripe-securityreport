@@ -3,3 +3,5 @@ mappings:
   GridFieldPrintReportButton: SilverStripe\SecurityReport\Forms\GridFieldPrintReportButton
   SubsiteMemberReportExtension: SilverStripe\SecurityReport\Subsites\SubsiteMemberReportExtension
   SubsiteSecurityReport: SilverStripe\SecurityReport\Subsites\SubsiteSecurityReport
+  MemberReportExtension: SilverStripe\SecurityReport\MemberReportExtension
+  UserSecurityReport: SilverStripe\SecurityReport\UserSecurityReport
