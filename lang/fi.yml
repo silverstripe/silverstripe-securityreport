@@ -1,6 +1,6 @@
 fi:
   MemberReportExtension:
-    NEVER: ei koskaan
+    NEVER: 'ei koskaan'
     NOGROUPS: 'Ei tietoturvaryhmässä'
     NOPERMISSIONS: 'Ei oikeuksia'
     UNKNOWN: Tuntematon
