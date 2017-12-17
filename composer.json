@@ -18,5 +18,9 @@
         "silverstripe/framework": "~3.1",
         "silverstripe/cms": "~3.1"
     },
-    "extra": []
+    "extra": {
+        "branch-alias": {
+            "1.x-dev": "1.1.x-dev"
+        }
+    }
 }
