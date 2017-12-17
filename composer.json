@@ -1,7 +1,11 @@
 {
     "name": "silverstripe/securityreport",
     "description": "Generates a security and access report for CMS users",
-    "keywords": ["silverstripe", "security", "report"],
+    "keywords": [
+        "silverstripe",
+        "security",
+        "report"
+    ],
     "type": "silverstripe-module",
     "license": "BSD-3-Clause",
     "authors": [

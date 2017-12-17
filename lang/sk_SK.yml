@@ -1,0 +1,8 @@
+sk_SK:
+  MemberReportExtension:
+    NEVER: nikdy
+    NOGROUPS: 'Nenachádza sa v žiadnej skupine'
+    NOPERMISSIONS: 'Žiadne právomoci'
+    UNKNOWN: Neznáme
+  UserSecurityReport:
+    REPORTTITLE: 'Používatelia, skupiny a oprávnenia'
