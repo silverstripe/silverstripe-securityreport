@@ -7,10 +7,9 @@ use SilverStripe\Forms\GridField\GridField;
 use SilverStripe\Forms\GridField\GridFieldExportButton;
 use SilverStripe\Forms\GridField\GridFieldPrintButton;
 use SilverStripe\ORM\DataList;
+use SilverStripe\Reports\Report;
 use SilverStripe\Security\Member;
 use SilverStripe\Security\Permission;
-use SilverStripe\Reports\Report;
-use SilverStripe\Control\Email\Email;
 use SilverStripe\SecurityReport\Forms\GridFieldExportReportButton;
 use SilverStripe\SecurityReport\Forms\GridFieldPrintReportButton;
 
