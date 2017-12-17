@@ -1,8 +1,7 @@
 en:
-  MemberReportExtension:
-    NEVER: never
+  SilverStripe\SecurityReport\MemberReportExtension:
     NOGROUPS: 'Not in a Security Group'
     NOPERMISSIONS: 'No Permissions'
     UNKNOWN: Unknown
-  UserSecurityReport:
+  SilverStripe\SecurityReport\UserSecurityReport:
     REPORTTITLE: 'Users, Groups and Permissions'

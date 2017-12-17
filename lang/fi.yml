@@ -1,8 +1,7 @@
 fi:
-  MemberReportExtension:
-    NEVER: 'ei koskaan'
+  SilverStripe\SecurityReport\MemberReportExtension:
     NOGROUPS: 'Ei tietoturvaryhmässä'
     NOPERMISSIONS: 'Ei oikeuksia'
     UNKNOWN: Tuntematon
-  UserSecurityReport:
+  SilverStripe\SecurityReport\UserSecurityReport:
     REPORTTITLE: 'Käyttäjät, ryhmät ja oikeudet'

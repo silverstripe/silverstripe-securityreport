@@ -1,8 +1,7 @@
 eo:
-  MemberReportExtension:
-    NEVER: neniam
+  SilverStripe\SecurityReport\MemberReportExtension:
     NOGROUPS: 'Ne en sekureca grupo'
     NOPERMISSIONS: 'Mankas permesoj'
     UNKNOWN: Nekonata
-  UserSecurityReport:
+  SilverStripe\SecurityReport\UserSecurityReport:
     REPORTTITLE: 'Uzuloj, grupoj kaj permesoj'
