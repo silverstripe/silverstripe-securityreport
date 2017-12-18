@@ -3,18 +3,20 @@ namespace SilverStripe\SecurityReport;
 
 use SilverStripe\Control\Director;
 use SilverStripe\Forms\FormField;
+use SilverStripe\Forms\GridField\GridField;
 use SilverStripe\Forms\GridField\GridFieldExportButton;
 use SilverStripe\Forms\GridField\GridFieldPrintButton;
-use SilverStripe\ORM\ArrayList;
+use SilverStripe\ORM\DataList;
+use SilverStripe\Reports\Report;
 use SilverStripe\Security\Member;
 use SilverStripe\Security\Permission;
-use SilverStripe\Reports\Report;
+use SilverStripe\SecurityReport\Forms\GridFieldExportReportButton;
+use SilverStripe\SecurityReport\Forms\GridFieldPrintReportButton;
 
 /**
  * User Security Report
  *
  * @author Michael Parkhill <mike@silverstripe.com>
- * @package securityreport
  */
 class UserSecurityReport extends Report
 {
@@ -32,10 +34,10 @@ class UserSecurityReport extends Report
         'Email' => 'Email',
         'Created' => 'Date Created',
         'GroupsDescription' => 'Groups',
-        'PermissionsDescription' => 'Permissions'
+        'PermissionsDescription' => 'Permissions',
     );
     
-    protected $dataClass = 'Member';
+    protected $dataClass = Member::class;
 
     /**
      * Returns the report title
@@ -44,7 +46,7 @@ class UserSecurityReport extends Report
      */
     public function title()
     {
-        return _t('UserSecurityReport.REPORTTITLE', 'Users, Groups and Permissions');
+        return _t(__CLASS__ . '.REPORTTITLE', 'Users, Groups and Permissions');
     }
 
     /**
@@ -129,6 +131,7 @@ class UserSecurityReport extends Report
      */
     public function getReportField()
     {
+        /** @var GridField $gridField */
         $gridField = parent::getReportField();
         $gridField->setModelClass(self::class);
         $gridConfig = $gridField->getConfig();

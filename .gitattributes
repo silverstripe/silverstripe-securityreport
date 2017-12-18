@@ -1,3 +1,4 @@
 /tests export-ignore
 /docs export-ignore
 /.travis.yml export-ignore
+/codecov.yml export-ignore

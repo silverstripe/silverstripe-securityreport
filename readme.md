@@ -1,14 +1,22 @@
 # Security Report
 
 [![Build Status](https://travis-ci.org/silverstripe/silverstripe-securityreport.svg)](https://travis-ci.org/silverstripe/silverstripe-securityreport)
-[![codecov](https://codecov.io/gh/silverstripe/silverstripe-securityreport/branch/master/graph/badge.svg)](https://codecov.io/gh/silverstripe/silverstripe-securityreport)
+[![Scrutinizer Code Quality](https://img.shields.io/scrutinizer/g/silverstripe/silverstripe-securityreport.svg)](https://scrutinizer-ci.com/g/silverstripe/silverstripe-securityreport/?branch=master)
+[![codecov](https://img.shields.io/codecov/c/github/silverstripe/silverstripe-securityreport.svg)](https://codecov.io/gh/silverstripe/silverstripe-securityreport)
 
 This module adds a "Users, Groups and Permissions" report in the CMS, so that
 an administrator can get a quick overview of who has access to the CMS.
 
+## Requirements
+
+* SilverStripe 4.0+
+
+**Note:** For SilverStripe 3.x, please use the [1.x release line](https://github.com/silverstripe/silverstripe-securityreport/tree/1.0).
+
+
 ## Install
 
-To install run `composer require silverstripe/securityreport ^2@dev`.
+To install run `composer require silverstripe/securityreport`.
 
 ## Subsites Support
 

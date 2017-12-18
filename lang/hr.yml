@@ -1,8 +1,7 @@
 hr:
-  MemberReportExtension:
-    NEVER: nikada
+  SilverStripe\SecurityReport\MemberReportExtension:
     NOGROUPS: 'Nije u Security grupi'
     NOPERMISSIONS: 'Nema prava'
     UNKNOWN: Nepoznato
-  UserSecurityReport:
+  SilverStripe\SecurityReport\UserSecurityReport:
     REPORTTITLE: 'Korisnici, grupe i prava'

@@ -1,51 +1,56 @@
 <?php
-return;
-/**
- * @broken, SubSites currently is unavailable on SS4
- *
- */
+
+namespace SilverStripe\SecurityReport\Tests;
+
 use SilverStripe\Dev\SapphireTest;
 use SilverStripe\Reports\Report;
 use SilverStripe\Security\Member;
 use SilverStripe\SecurityReport\MemberReportExtension;
-use SilverStripe\SecurityReport\SubsiteMemberReportExtension;
+use SilverStripe\SecurityReport\Subsites\SubsiteMemberReportExtension;
 use SilverStripe\SecurityReport\UserSecurityReport;
+use SilverStripe\Subsites\Model\Subsite;
 
 /**
  * User Security Report Tests.
  *
- * @package securityreport
- * @subpackage tests
  * @author Damian Mooyman <damian@silverstripe.com>
- *
-class SubsitesReportTest extends SapphireTest {
+ */
+class SubsitesReportTest extends SapphireTest
+{
 
     protected static $fixture_file = 'SubsitesReportTest.yml';
 
     protected $records;
 
-    protected $requiredExtensions = array(
-        Member::class => [MemberReportExtension::class, SubsiteMemberReportExtension::class]
-    );
+    protected static $required_extensions = [
+        Member::class => [
+            MemberReportExtension::class,
+            SubsiteMemberReportExtension::class,
+        ],
+    ];
 
-    public function setUp() {
-        parent::setUp();
-
-        if(!class_exists('Subsite')) {
-            $this->skipTest = true;
+    protected function setUp()
+    {
+        if (!class_exists(Subsite::class)) {
+            // Don't break the parent:setUp() when failing to create Subsite fixtures
+            static::$fixture_file = null;
             $this->markTestSkipped("Please install Subsites to run this test");
         }
+
+        parent::setUp();
 
         $reports = Report::get_reports();
         $report = $reports[UserSecurityReport::class];
         $this->records = $report->sourceRecords()->toArray();
     }
 
-    public function testSourceRecords() {
+    public function testSourceRecords()
+    {
         $this->assertNotEmpty($this->records);
     }
 
-    public function testGetMemberGroups() {
+    public function testGetMemberGroups()
+    {
 
         // Admin
         $admin = $this->objFromFixture(Member::class, 'memberadmin');
@@ -76,4 +81,3 @@ class SubsitesReportTest extends SapphireTest {
         $this->assertContains('TestSubsite2', $subsites);
     }
 }
-/**/
