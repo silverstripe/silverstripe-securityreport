@@ -1,7 +1,7 @@
 title: Security report
 summary: Adds a security overview report in the CMS
 
-## In this section:
+## In this section
 
 * Security report overview
 * Subsites support
@@ -13,7 +13,7 @@ Make sure that your SilverStripe installation has the [securityreport](http://ad
 
 This module adds a "Users, Groups and Permissions" report in the CMS, so that an administrator can get a quick overview of who has access to the CMS.
 
-![Security Report](_images/security-report.jpg)
+![Security Report](_images/security-report.png)
 
 ## Subsites
 
