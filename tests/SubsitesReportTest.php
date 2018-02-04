@@ -34,6 +34,7 @@ class SubsitesReportTest extends SapphireTest
         if (!class_exists(Subsite::class)) {
             // Don't break the parent:setUp() when failing to create Subsite fixtures
             static::$fixture_file = null;
+            parent::setUp();
             $this->markTestSkipped("Please install Subsites to run this test");
         }
 
