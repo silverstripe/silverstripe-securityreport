@@ -10,6 +10,7 @@ use SilverStripe\ORM\DataList;
 use SilverStripe\Reports\Report;
 use SilverStripe\Security\Member;
 use SilverStripe\Security\Permission;
+use SilverStripe\Security\Security;
 use SilverStripe\SecurityReport\Forms\GridFieldExportReportButton;
 use SilverStripe\SecurityReport\Forms\GridFieldPrintReportButton;
 
@@ -33,6 +34,7 @@ class UserSecurityReport extends Report
         'Surname' => 'Surname',
         'Email' => 'Email',
         'Created' => 'Date Created',
+        'LastLoggedIn' => 'Last Logged In',
         'GroupsDescription' => 'Groups',
         'PermissionsDescription' => 'Permissions',
     );
@@ -70,7 +72,11 @@ class UserSecurityReport extends Report
      */
     public function columns()
     {
-        return self::config()->columns;
+        $columns = self::config()->columns;
+        if (!Security::config()->get('login_recording')) {
+            unset($columns['LastLoggedIn']);
+        }
+        return $columns;
     }
 
     /**

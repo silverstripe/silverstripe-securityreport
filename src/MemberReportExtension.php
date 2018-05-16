@@ -3,6 +3,7 @@ namespace SilverStripe\SecurityReport;
 
 use SilverStripe\ORM\DataExtension;
 use SilverStripe\Security\Permission;
+use SilverStripe\Security\LoginAttempt;
 use SilverStripe\Subsites\Model\Subsite;
 
 /**
@@ -11,6 +12,20 @@ use SilverStripe\Subsites\Model\Subsite;
  */
 class MemberReportExtension extends DataExtension
 {
+
+    /**
+     * Connect the link to LoginAttempt.
+     * This relationship is always defined (whether enabled or not),
+     * although only normally accessible from the `LoginAttempt` side.
+     * This is adding the reflection, as that it is also accessible
+     * from the `Member` side.
+     *
+     * @var array
+     * @config
+     */
+    private static $has_many = [
+        'LoginAttempts' => LoginAttempt::class
+    ];
     
     /**
      * Set cast of additional fields
@@ -22,6 +37,21 @@ class MemberReportExtension extends DataExtension
         'GroupsDescription' => 'Text',
         'PermissionsDescription' => 'Text'
     );
+
+    /**
+     * Retrieves the most recent successful LoginAttempt
+     *
+     * @return DBDatetime|string
+     */
+    public function getLastLoggedIn()
+    {
+        $lastTime = $this->owner->LoginAttempts()
+            ->filter('Status', 'Success')
+            ->sort('Created', 'DESC')
+            ->first();
+
+        return $lastTime ? $lastTime->dbObject('Created') : _t(__CLASS__ . '.NEVER', 'Never');
+    }
 
     /**
      * Builds a comma separated list of member group names for a given Member.
