@@ -1,0 +1,12 @@
+SilverStripe\Security\Member:
+  has_logged_in:
+    FirstName: Sarah
+    Surname: Smith
+
+SilverStripe\Security\LoginAttempt:
+  sarah_1:
+    Member: =>SilverStripe\Security\Member.has_logged_in
+    Status: Success
+  sarah_2:
+    Member: =>SilverStripe\Security\Member.has_logged_in
+    Status: Failure

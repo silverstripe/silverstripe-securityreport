@@ -3,6 +3,7 @@
 namespace SilverStripe\SecurityReport\Tests;
 
 use SilverStripe\Core\Config\Config;
+use SilverStripe\ORM\ArrayList;
 use SilverStripe\Security\Group;
 use SilverStripe\Security\Member;
 use SilverStripe\Security\Security;
@@ -40,7 +41,7 @@ class UserSecurityReportTest extends SapphireTest
     /**
      * Utility method for all tests to use.
      *
-     * @return \ArrayList
+     * @return ArrayList
      * @todo pre-fill the report with fixture-defined users
      */
     protected function setUp()
