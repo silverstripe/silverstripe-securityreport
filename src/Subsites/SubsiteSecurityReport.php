@@ -12,13 +12,4 @@ use SilverStripe\Core\Extension;
 class SubsiteSecurityReport extends Extension
 {
 
-    /**
-     * Columns in the report
-     *
-     * @var array
-     * @config
-     */
-    private static $columns = array(
-        'SubsiteDescription' => 'Subsites (edit permissions)',
-    );
 }

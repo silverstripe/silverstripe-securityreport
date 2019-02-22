@@ -4,8 +4,8 @@ Only:
   moduleexists: silverstripe/subsites
 ---
 SilverStripe\SecurityReport\UserSecurityReport:
-  extensions:
-    - SilverStripe\SecurityReport\Subsites\SubsiteSecurityReport
+  columns:
+    SubsiteDescription: Subsites (edit permissions)
 
 SilverStripe\Security\Member:
   extensions:
