@@ -1,0 +1,7 @@
+nl:
+  SilverStripe\SecurityReport\MemberReportExtension:
+    NOGROUPS: 'Niet in een beveiligingsgroep'
+    NOPERMISSIONS: 'Geen toegang'
+    UNKNOWN: Onbekend
+  SilverStripe\SecurityReport\UserSecurityReport:
+    REPORTTITLE: 'Gebruikers, groepen en rechten'

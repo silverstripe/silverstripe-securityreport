@@ -1,0 +1,7 @@
+da:
+  SilverStripe\SecurityReport\MemberReportExtension:
+    NOGROUPS: 'Ikke i en adgangsgruppe'
+    NOPERMISSIONS: 'Ingen tilladelser'
+    UNKNOWN: Ukendt
+  SilverStripe\SecurityReport\UserSecurityReport:
+    REPORTTITLE: 'Brugere, grupper og tilladelser'

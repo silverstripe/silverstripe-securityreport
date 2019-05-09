@@ -1,0 +1,7 @@
+it:
+  SilverStripe\SecurityReport\MemberReportExtension:
+    NOGROUPS: 'Non in un Gruppo Sicurezza'
+    NOPERMISSIONS: 'Senza Permessi'
+    UNKNOWN: Sconosciuto
+  SilverStripe\SecurityReport\UserSecurityReport:
+    REPORTTITLE: 'Utenti, Gruppi e Permessi'
