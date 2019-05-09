@@ -1,5 +1,6 @@
 en:
   SilverStripe\SecurityReport\MemberReportExtension:
+    NEVER: Never
     NOGROUPS: 'Not in a Security Group'
     NOPERMISSIONS: 'No Permissions'
     UNKNOWN: Unknown
