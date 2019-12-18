@@ -1,5 +1,7 @@
+---
 title: Security report
 summary: Adds a security overview report in the CMS
+---
 
 ## In this section
 
