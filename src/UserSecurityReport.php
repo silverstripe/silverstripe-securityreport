@@ -59,7 +59,7 @@ class UserSecurityReport extends Report
     public function description()
     {
         return str_replace(
-            array('http', 'https', '://'),
+            array('http://', 'https://'),
             '',
             Director::protocolAndHost() . ' - ' . date('d/m/Y H:i:s')
         );
