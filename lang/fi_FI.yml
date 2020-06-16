@@ -1,4 +1,4 @@
-fi:
+fi_FI:
   SilverStripe\SecurityReport\MemberReportExtension:
     NEVER: 'Ei koskaan'
     NOGROUPS: 'Ei tietoturvaryhmässä'

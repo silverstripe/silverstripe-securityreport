@@ -1,5 +1,6 @@
 nl:
   SilverStripe\SecurityReport\MemberReportExtension:
+    NEVER: Nooit
     NOGROUPS: 'Niet in een beveiligingsgroep'
     NOPERMISSIONS: 'Geen toegang'
     UNKNOWN: Onbekend
