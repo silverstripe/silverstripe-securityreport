@@ -30,6 +30,8 @@ before_script:
   - composer validate
   - composer require --no-update silverstripe/recipe-cms:$RECIPE_VERSION
   - composer require --no-update silverstripe/subsites:^2
+  # Fix for running phpunit 5 on php 7.4+
+  - composer require --no-update sminnee/phpunit-mock-objects:^3
   - if [[ $DB == PGSQL ]]; then composer require silverstripe/postgresql:^2 --no-update; fi
   - composer install --prefer-dist --no-interaction --no-progress --no-suggest --optimize-autoloader --verbose --profile
 
