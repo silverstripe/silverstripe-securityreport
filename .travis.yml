@@ -1,13 +1,11 @@
-language: php
+version: ~> 1.0
 
-dist: xenial
-
-services:
-  - mysql
-  - postgresql
+import:
+  - silverstripe/silverstripe-travis-shared:config/provision/standard-jobs-range.yml
 
 env:
   global:
+<<<<<<< HEAD
     - COMPOSER_ROOT_VERSION="2.x-dev"
 
 matrix:
@@ -40,3 +38,6 @@ script:
 
 after_success:
   - if [[ $PHPUNIT_COVERAGE_TEST ]]; then bash <(curl -s https://codecov.io/bash) -f coverage.xml; fi
+=======
+    - REQUIRE_EXTRA="silverstripe/subsites:^2"
+>>>>>>> 2.2
