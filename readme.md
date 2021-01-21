@@ -1,6 +1,6 @@
 # Security Report
 
-[![Build Status](https://travis-ci.org/silverstripe/silverstripe-securityreport.svg)](https://travis-ci.org/silverstripe/silverstripe-securityreport)
+[![Build Status](https://api.travis-ci.com/silverstripe/silverstripe-securityreport.svg?branch=2)](https://travis-ci.com/silverstripe/silverstripe-securityreport)
 [![Scrutinizer Code Quality](https://img.shields.io/scrutinizer/g/silverstripe/silverstripe-securityreport.svg)](https://scrutinizer-ci.com/g/silverstripe/silverstripe-securityreport/?branch=master)
 [![codecov](https://img.shields.io/codecov/c/github/silverstripe/silverstripe-securityreport.svg)](https://codecov.io/gh/silverstripe/silverstripe-securityreport)
 [![SilverStripe supported module](https://img.shields.io/badge/silverstripe-supported-0071C4.svg)](https://www.silverstripe.org/software/addons/silverstripe-commercially-supported-module-list/)
