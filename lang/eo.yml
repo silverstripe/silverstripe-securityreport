@@ -1,5 +1,6 @@
 eo:
   SilverStripe\SecurityReport\MemberReportExtension:
+    NEVER: Neniam
     NOGROUPS: 'Ne en sekureca grupo'
     NOPERMISSIONS: 'Mankas permesoj'
     UNKNOWN: Nekonata
