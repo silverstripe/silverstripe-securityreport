@@ -29,7 +29,7 @@ class SubsitesReportTest extends SapphireTest
         ],
     ];
 
-    protected function setUp()
+    protected function setUp(): void
     {
         if (!class_exists(Subsite::class)) {
             // Don't break the parent:setUp() when failing to create Subsite fixtures
@@ -56,29 +56,29 @@ class SubsitesReportTest extends SapphireTest
         // Admin
         $admin = $this->objFromFixture(Member::class, 'memberadmin');
         $subsites = $admin->SubsiteDescription;
-        $this->assertContains('TestMainSite', $subsites);
-        $this->assertContains('TestSubsite1', $subsites);
-        $this->assertContains('TestSubsite2', $subsites);
+        $this->assertStringContainsString('TestMainSite', $subsites);
+        $this->assertStringContainsString('TestSubsite1', $subsites);
+        $this->assertStringContainsString('TestSubsite2', $subsites);
 
         // Editor
         $membereditor = $this->objFromFixture(Member::class, 'membereditor');
         $subsites = $membereditor->SubsiteDescription;
-        $this->assertContains('TestMainSite', $subsites);
-        $this->assertContains('TestSubsite1', $subsites);
-        $this->assertContains('TestSubsite2', $subsites);
+        $this->assertStringContainsString('TestMainSite', $subsites);
+        $this->assertStringContainsString('TestSubsite1', $subsites);
+        $this->assertStringContainsString('TestSubsite2', $subsites);
 
         // First User
         $membersubsite1 = $this->objFromFixture(Member::class, 'membersubsite1');
         $subsites = $membersubsite1->SubsiteDescription;
-        $this->assertNotContains('TestMainSite', $subsites);
-        $this->assertContains('TestSubsite1', $subsites);
-        $this->assertNotContains('TestSubsite2', $subsites);
+        $this->assertStringNotContainsString('TestMainSite', $subsites);
+        $this->assertStringContainsString('TestSubsite1', $subsites);
+        $this->assertStringNotContainsString('TestSubsite2', $subsites);
 
         // Second user
         $memberallsubsites = $this->objFromFixture(Member::class, 'memberallsubsites');
         $subsites = $memberallsubsites->SubsiteDescription;
-        $this->assertNotContains('TestMainSite', $subsites);
-        $this->assertContains('TestSubsite1', $subsites);
-        $this->assertContains('TestSubsite2', $subsites);
+        $this->assertStringNotContainsString('TestMainSite', $subsites);
+        $this->assertStringContainsString('TestSubsite1', $subsites);
+        $this->assertStringContainsString('TestSubsite2', $subsites);
     }
 }
