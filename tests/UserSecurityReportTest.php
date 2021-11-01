@@ -44,7 +44,7 @@ class UserSecurityReportTest extends SapphireTest
      * @return ArrayList
      * @todo pre-fill the report with fixture-defined users
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
         $reports = Report::get_reports();

@@ -17,7 +17,7 @@ class MemberReportExtensionTest extends SapphireTest
         ],
     ];
 
-    protected function setUp()
+    protected function setUp(): void
     {
         DBDatetime::set_mock_now('2018-05-03 00:00:00');
 
@@ -29,7 +29,7 @@ class MemberReportExtensionTest extends SapphireTest
         /** @var Member $member */
         $member = $this->objFromFixture(Member::class, 'has_logged_in');
         $result = $member->getLastLoggedIn();
-        $this->assertContains('2018-05-03', $result, 'Last logged in date is shown');
+        $this->assertStringContainsString('2018-05-03', $result, 'Last logged in date is shown');
     }
 
     public function testGetLastLoggedInReturnsNever()
