@@ -44,7 +44,7 @@ class GridFieldExportReportButton extends GridFieldExportButton
             // determine the CSV headers. If a field is callable (e.g. anonymous function) then use the
             // source name as the header instead
             foreach ($csvColumns as $columnSource => $columnHeader) {
-                if (is_array($columnHeader) && array_key_exists('title', $columnHeader)) {
+                if (is_array($columnHeader) && array_key_exists('title', $columnHeader ?? [])) {
                     $headers[] = $columnHeader['title'];
                 } else {
                     $headers[] = (!is_string($columnHeader) && is_callable($columnHeader))
@@ -53,7 +53,7 @@ class GridFieldExportReportButton extends GridFieldExportButton
                 }
             }
 
-            $fileData .= "\"" . implode("\"{$separator}\"", array_values($headers)) . "\"";
+            $fileData .= "\"" . implode("\"{$separator}\"", array_values($headers ?? [])) . "\"";
             $fileData .= "\n";
         }
 
@@ -83,10 +83,10 @@ class GridFieldExportReportButton extends GridFieldExportButton
                     $value = $gridField->getDataFieldValue($item, $columnSource);
                 }
 
-                $value = str_replace(array("\r", "\n"), "\n", $value);
-                $columnData[] = '"' . str_replace('"', '\"', $value) . '"';
+                $value = str_replace(array("\r", "\n"), "\n", $value ?? '');
+                $columnData[] = '"' . str_replace('"', '\"', $value ?? '') . '"';
             }
-            $fileData .= implode($separator, $columnData);
+            $fileData .= implode($separator ?? '', $columnData);
             $fileData .= "\n";
 
             $item->destroy();

@@ -64,7 +64,7 @@ class MemberReportExtension extends DataExtension
             $groupNames = array();
             foreach ($groups as $group) {
                 /** @var Group $group */
-                $groupNames[] = html_entity_decode($group->getTreeTitle());
+                $groupNames[] = html_entity_decode($group->getTreeTitle() ?? '');
             }
             // return a csv string of the group names, sans-markup
             $result = preg_replace("#</?[^>]>#", '', implode(', ', $groupNames));
@@ -96,7 +96,7 @@ class MemberReportExtension extends DataExtension
 
         $permissionNames = array();
         foreach ($permissionsUsr as $code) {
-            $code = strtoupper($code);
+            $code = strtoupper($code ?? '');
             foreach ($permissionsSrc as $k => $v) {
                 if (isset($v[$code])) {
                     $name = empty($v[$code]['name'])

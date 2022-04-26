@@ -104,7 +104,7 @@ class UserSecurityReport extends Report
      */
     public function sortColumns()
     {
-        return array_keys($this->columns());
+        return array_keys($this->columns() ?? []);
     }
 
     /**

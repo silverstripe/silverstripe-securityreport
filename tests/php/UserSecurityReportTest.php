@@ -90,10 +90,10 @@ class UserSecurityReportTest extends SapphireTest
         $original = Config::inst()->get(Security::class, 'login_recording');
 
         Config::modify()->set(Security::class, 'login_recording', true);
-        $this->assertContains('LastLoggedIn', array_keys($this->report->columns()));
+        $this->assertContains('LastLoggedIn', array_keys($this->report->columns() ?? []));
 
         Config::modify()->set(Security::class, 'login_recording', false);
-        $this->assertNotContains('LastLoggedIn', array_keys($this->report->columns()));
+        $this->assertNotContains('LastLoggedIn', array_keys($this->report->columns() ?? []));
 
         Config::modify()->set(Security::class, 'login_recording', $original);
     }
