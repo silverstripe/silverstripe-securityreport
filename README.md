@@ -1,19 +1,16 @@
 # Security Report
 
 [![CI](https://github.com/silverstripe/silverstripe-securityreport/actions/workflows/ci.yml/badge.svg)](https://github.com/silverstripe/silverstripe-securityreport/actions/workflows/ci.yml)
-[![Scrutinizer Code Quality](https://img.shields.io/scrutinizer/g/silverstripe/silverstripe-securityreport.svg)](https://scrutinizer-ci.com/g/silverstripe/silverstripe-securityreport/?branch=master)
-[![codecov](https://img.shields.io/codecov/c/github/silverstripe/silverstripe-securityreport.svg)](https://codecov.io/gh/silverstripe/silverstripe-securityreport)
-[![SilverStripe supported module](https://img.shields.io/badge/silverstripe-supported-0071C4.svg)](https://www.silverstripe.org/software/addons/silverstripe-commercially-supported-module-list/)
+[![Silverstripe supported module](https://img.shields.io/badge/silverstripe-supported-0071C4.svg)](https://www.silverstripe.org/software/addons/silverstripe-commercially-supported-module-list/)
 
 This module adds a "Users, Groups and Permissions" report in the CMS, so that
 an administrator can get a quick overview of who has access to the CMS.
 
 ## Requirements
 
-* SilverStripe 4.0+
+* Silverstripe 4.0+
 
-**Note:** For SilverStripe 3.x, please use the [1.x release line](https://github.com/silverstripe/silverstripe-securityreport/tree/1.0).
-
+**Note:** For Silverstripe 3.x, please use the [1.x release line](https://github.com/silverstripe/silverstripe-securityreport/tree/1.0).
 
 ## Install
 
