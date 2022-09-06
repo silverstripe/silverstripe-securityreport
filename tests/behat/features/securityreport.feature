@@ -3,10 +3,10 @@ Feature: Security report
   I want to use the security report
 
   Background:
-    Given the "group" "EDITOR group" has permissions "CMS_ACCESS_LeftAndMain" and "FILE_EDIT_ALL"
+    Given the "group" "EDITOR" has permissions "CMS_ACCESS_LeftAndMain" and "FILE_EDIT_ALL"
 
     # Login as EDITOR to create member
-    And I am logged in with "EDITOR" permissions
+    And I am logged in as a member of "EDITOR" group
 
     # Logout and login again as ADMIN
     And I go to "/Security/login"
@@ -31,7 +31,7 @@ Feature: Security report
     And I should see "EDITOR@example.org"
 
     # Groups column
-    And I should see "EDITOR group (global group)"
+    And I should see "EDITOR (global group)"
 
     # Permissions column
     Then I should see "Edit any file"
