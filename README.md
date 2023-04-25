@@ -6,15 +6,11 @@
 This module adds a "Users, Groups and Permissions" report in the CMS, so that
 an administrator can get a quick overview of who has access to the CMS.
 
-## Requirements
+## Installation
 
-* Silverstripe 4.0+
-
-**Note:** For Silverstripe 3.x, please use the [1.x release line](https://github.com/silverstripe/silverstripe-securityreport/tree/1.0).
-
-## Install
-
-To install run `composer require silverstripe/securityreport`.
+```sh
+composer require silverstripe/securityreport
+```
 
 ## Subsites Support
 
