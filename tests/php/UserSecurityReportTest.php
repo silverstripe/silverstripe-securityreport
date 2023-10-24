@@ -42,7 +42,6 @@ class UserSecurityReportTest extends SapphireTest
      * Utility method for all tests to use.
      *
      * @return ArrayList
-     * @todo pre-fill the report with fixture-defined users
      */
     protected function setUp(): void
     {
