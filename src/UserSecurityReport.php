@@ -38,7 +38,7 @@ class UserSecurityReport extends Report
         'GroupsDescription' => 'Groups',
         'PermissionsDescription' => 'Permissions',
     );
-    
+
     protected $dataClass = Member::class;
 
     /**
@@ -110,7 +110,7 @@ class UserSecurityReport extends Report
     /**
      * Get the source records for the report gridfield
      *
-     * @return DataList
+     * @return DataList<Member>
      */
     public function sourceRecords()
     {
@@ -133,11 +133,10 @@ class UserSecurityReport extends Report
      * Return a field, such as a {@link GridField} that is
      * used to show and manipulate data relating to this report.
      *
-     * @return FormField subclass
+     * @return GridField subclass
      */
     public function getReportField()
     {
-        /** @var GridField $gridField */
         $gridField = parent::getReportField();
         $gridField->setModelClass(self::class);
         $gridConfig = $gridField->getConfig();

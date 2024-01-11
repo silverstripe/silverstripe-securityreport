@@ -40,8 +40,6 @@ class UserSecurityReportTest extends SapphireTest
 
     /**
      * Utility method for all tests to use.
-     *
-     * @return ArrayList
      */
     protected function setUp(): void
     {
