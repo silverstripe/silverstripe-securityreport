@@ -6,11 +6,14 @@ use SilverStripe\ORM\FieldType\DBDatetime;
 use SilverStripe\Security\Group;
 use SilverStripe\Security\Permission;
 use SilverStripe\Security\LoginAttempt;
+use SilverStripe\Security\Member;
 use SilverStripe\Subsites\Model\Subsite;
 
 /**
  * Extends the {@see Member} class with additional descriptions for elements.
  * See {@see UserSecurityReport} for usage.
+ *
+ * @extends DataExtension<Member>
  */
 class MemberReportExtension extends DataExtension
 {
@@ -63,7 +66,6 @@ class MemberReportExtension extends DataExtension
             // Collect the group names
             $groupNames = array();
             foreach ($groups as $group) {
-                /** @var Group $group */
                 $groupNames[] = html_entity_decode($group->getTreeTitle() ?? '');
             }
             // return a csv string of the group names, sans-markup

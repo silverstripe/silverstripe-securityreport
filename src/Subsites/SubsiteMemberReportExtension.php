@@ -3,16 +3,19 @@
 namespace SilverStripe\SecurityReport\Subsites;
 
 use SilverStripe\ORM\DataExtension;
+use SilverStripe\Security\Member;
 use SilverStripe\Subsites\Model\Subsite;
 
 /**
  * Adds 'SubsiteDescription' for to show which subsites this Member has edit access to
  *
  * @author Damian Mooyman <damian@silverstripe.com>
+ *
+ * @extends DataExtension<Member>
  */
 class SubsiteMemberReportExtension extends DataExtension
 {
-    
+
     /**
      * Set cast of additional field
      *
@@ -22,7 +25,7 @@ class SubsiteMemberReportExtension extends DataExtension
     private static $casting = array(
         'SubsiteDescription' => 'Text'
     );
-    
+
     /**
      * Default permission to filter for
      *
@@ -30,7 +33,7 @@ class SubsiteMemberReportExtension extends DataExtension
      * @config
      */
     private static $subsite_description_permission = 'SITETREE_EDIT_ALL';
-    
+
     /**
      * Describes the subsites this user has SITETREE_EDIT_ALL access to
      *
