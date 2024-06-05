@@ -72,7 +72,7 @@ class UserSecurityReport extends Report
      */
     public function columns()
     {
-        $columns = self::config()->columns;
+        $columns = static::config()->columns;
         if (!Security::config()->get('login_recording')) {
             unset($columns['LastLoggedIn']);
         }
@@ -138,7 +138,7 @@ class UserSecurityReport extends Report
     public function getReportField()
     {
         $gridField = parent::getReportField();
-        $gridField->setModelClass(self::class);
+        $gridField->setModelClass(UserSecurityReport::class);
         $gridConfig = $gridField->getConfig();
         $gridConfig->removeComponentsByType([GridFieldPrintButton::class, GridFieldExportButton::class]);
         $gridConfig->addComponents(
