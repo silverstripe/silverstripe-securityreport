@@ -2,7 +2,7 @@
 
 namespace SilverStripe\SecurityReport\Subsites;
 
-use SilverStripe\ORM\DataExtension;
+use SilverStripe\Core\Extension;
 use SilverStripe\Security\Member;
 use SilverStripe\Subsites\Model\Subsite;
 
@@ -11,9 +11,9 @@ use SilverStripe\Subsites\Model\Subsite;
  *
  * @author Damian Mooyman <damian@silverstripe.com>
  *
- * @extends DataExtension<Member>
+ * @extends Extension<Member>
  */
-class SubsiteMemberReportExtension extends DataExtension
+class SubsiteMemberReportExtension extends Extension
 {
 
     /**

@@ -1,7 +1,7 @@
 <?php
 namespace SilverStripe\SecurityReport;
 
-use SilverStripe\ORM\DataExtension;
+use SilverStripe\Core\Extension;
 use SilverStripe\ORM\FieldType\DBDatetime;
 use SilverStripe\Security\Group;
 use SilverStripe\Security\Permission;
@@ -13,9 +13,9 @@ use SilverStripe\Subsites\Model\Subsite;
  * Extends the {@see Member} class with additional descriptions for elements.
  * See {@see UserSecurityReport} for usage.
  *
- * @extends DataExtension<Member>
+ * @extends Extension<Member>
  */
-class MemberReportExtension extends DataExtension
+class MemberReportExtension extends Extension
 {
     /**
      * Set cast of additional fields
