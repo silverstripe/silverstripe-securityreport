@@ -1,7 +1,6 @@
 # Security Report
 
 [![CI](https://github.com/silverstripe/silverstripe-securityreport/actions/workflows/ci.yml/badge.svg)](https://github.com/silverstripe/silverstripe-securityreport/actions/workflows/ci.yml)
-[![Silverstripe supported module](https://img.shields.io/badge/silverstripe-supported-0071C4.svg)](https://www.silverstripe.org/software/addons/silverstripe-commercially-supported-module-list/)
 
 This module adds a "Users, Groups and Permissions" report in the CMS, so that
 an administrator can get a quick overview of who has access to the CMS.
