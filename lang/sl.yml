@@ -1,0 +1,8 @@
+sl:
+  SilverStripe\SecurityReport\MemberReportExtension:
+    NEVER: Nikoli
+    NOGROUPS: 'Ni v varnostni skupini'
+    NOPERMISSIONS: 'Brez dovoljenj'
+    UNKNOWN: Neznano
+  SilverStripe\SecurityReport\UserSecurityReport:
+    REPORTTITLE: 'Uporabniki, skupine in dovoljenja'
